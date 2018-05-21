@@ -1,0 +1,22 @@
+{
+  "name": "@reinjs/rein-swagger",
+  "version": "1.0.0",
+  "description": "The swagger tool of rein",
+  "author": "reinjs",
+  "license": "MIT",
+  "dependencies": {
+    "@reinjs/rein-class": "^1.0.2",
+    "@reinjs/rein-utils": "^1.0.1",
+    "fs-extra": "^6.0.1",
+    "koa-mount": "^3.0.0",
+    "koa-static": "^4.0.3",
+    "oss-license-name-to-url": "^1.2.1"
+  },
+  "plugin": {
+    "name": "swagger"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=dev node index.js --service.name=@reinjs/rein-swagger --service.tag=dev --service.port=8080",
+    "postinstall": "node install.js"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@reinjs/rein-swagger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The swagger tool of rein",
   "author": "reinjs",
   "license": "MIT",
@@ -16,7 +16,6 @@
     "name": "swagger"
   },
   "scripts": {
-    "dev": "NODE_ENV=dev node index.js --service.name=@reinjs/rein-swagger --service.tag=dev --service.port=8080",
-    "postinstall": "./install.js"
+    "dev": "NODE_ENV=dev node index.js --service.name=@reinjs/rein-swagger --service.tag=dev --service.port=8080"
   }
 }

@@ -1,4 +1,5 @@
 const path = require('path');
+const Install = require('./install');
 module.exports = class Commander {
   constructor(ctx) {
     this.ctx = ctx;
@@ -29,5 +30,12 @@ module.exports = class Commander {
       ctx.spinner.success('全部文件生成完毕');
       return true;
     }
+  }
+  
+  async command(app) {
+    app.command('swagger init', async ctx => {
+      await Install(ctx.projectCwd);
+      console.log(' +', `Swagger(${path.resolve(ctx.projectCwd, 'app/swagger')})`);
+    });
   }
 };

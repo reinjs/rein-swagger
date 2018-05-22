@@ -16,6 +16,7 @@
     "name": "swagger"
   },
   "scripts": {
-    "dev": "NODE_ENV=dev node index.js --service.name=@reinjs/rein-swagger --service.tag=dev --service.port=8080"
+    "dev": "NODE_ENV=dev node index.js --service.name=@reinjs/rein-swagger --service.tag=dev --service.port=8080",
+    "postinstall": "rc init @reinjs/rein-swagger"
   }
 }

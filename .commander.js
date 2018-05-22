@@ -31,11 +31,4 @@ module.exports = class Commander {
       return true;
     }
   }
-  
-  async command(app) {
-    app.command('swagger init', async ctx => {
-      await Install(ctx.projectCwd);
-      console.log(' +', `Swagger(${path.resolve(ctx.projectCwd, 'app/swagger')})`);
-    });
-  }
 };

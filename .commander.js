@@ -1,5 +1,4 @@
 const path = require('path');
-const Install = require('./install');
 module.exports = class Commander {
   constructor(ctx) {
     this.ctx = ctx;

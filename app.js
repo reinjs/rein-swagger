@@ -25,7 +25,7 @@ module.exports = async (app, plugin) => {
     result.basePath = config.basePath || '/';
     result.host = config.host || '127.0.0.1:8080';
     result.schemes = config.protocols || ['http'];
-    result.swagger = packageCache.version;
+    result.swagger = '2.0';
     result.paths = {};
     
     result.externalDocs = {};

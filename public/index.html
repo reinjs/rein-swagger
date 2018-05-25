@@ -42,7 +42,7 @@
       // Build a system
       var ui = SwaggerUIBundle({
         // http://petstore.swagger.io/v2/swagger.json
-        url: "/swagger-data",
+        url: window.location.origin + "/swagger-data",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [

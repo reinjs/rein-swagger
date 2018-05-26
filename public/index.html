@@ -40,7 +40,7 @@
     window.onload = function() {
 
       // Build a system
-      const ui = SwaggerUIBundle({
+      var ui = SwaggerUIBundle({
         // http://petstore.swagger.io/v2/swagger.json
         url: window.location.origin + "/swagger-data",
         dom_id: '#swagger-ui',
@@ -53,7 +53,7 @@
           SwaggerUIBundle.plugins.DownloadUrl
         ],
         layout: "StandaloneLayout"
-      })
+      });
 
       window.ui = ui
     }

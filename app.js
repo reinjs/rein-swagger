@@ -46,7 +46,7 @@ module.exports = async (app, plugin) => {
     const jsonSchemaFilePath = path.resolve(app.config.cwd, 'app', 'swagger', 'schema.json');
     const securityDefinitionsFilePath = path.resolve(app.config.cwd, 'app', 'swagger', 'security.json');
     const tagFilePath = path.resolve(app.config.cwd, 'app', 'swagger', 'tags.json');
-  
+    
     /**
      * tags: [...]
      *  - description
@@ -75,7 +75,8 @@ module.exports = async (app, plugin) => {
       const paths = {};
       const swaggerPath = path.resolve(app.config.cwd, 'app', 'swagger', 'paths');
       for (const rule in swagger) {
-        paths[rule] = {};
+        const _rule = formatRule(rule);
+        paths[_rule] = {};
         for (let i = 0; i < swagger[rule].length; i++) {
           const rulePath = swagger[rule][i].path;
           const files = [
@@ -83,7 +84,7 @@ module.exports = async (app, plugin) => {
             path.resolve(swaggerPath, rulePath.replace(/^\//, './') + '.js')
           ].filter(file => fs.existsSync(file));
           if (files.length) {
-            paths[rule][swagger[rule][i].method.toLowerCase()] = utils.loadFile(files[0]);
+            paths[_rule][swagger[rule][i].method.toLowerCase()] = utils.loadFile(files[0]);
           }
         }
       }
@@ -91,6 +92,10 @@ module.exports = async (app, plugin) => {
     }
   });
 };
+
+function formatRule(str) {
+  return str.replace(/\:([^\(\/\?\*\+]+)((\([^\)]+\))?[\?\*\+]?)?/g, '{$1}');
+}
 
 function canViewSwagger(authorize, middleware) {
   return async (ctx, next) => {
